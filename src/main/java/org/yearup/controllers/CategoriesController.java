@@ -56,7 +56,8 @@ public class CategoriesController
     public ResponseEntity<Category> addCategory(@RequestBody Category category)
     {
         // insert the category and return it with status 201 Created
-        return null;
+        Category newCategory = categoryService.create(category);
+        return ResponseEntity.status(201).body(newCategory);
     }
 
     // add annotation to call this method for a PUT (update) action - the url path must include the categoryId
@@ -64,7 +65,7 @@ public class CategoriesController
     public Category updateCategory(@PathVariable int id, @RequestBody Category category)
     {
         // update the category by id and return the updated category (200 OK)
-        return null;
+        return categoryService.update(id, category);
     }
 
 
@@ -73,6 +74,7 @@ public class CategoriesController
     public ResponseEntity<Void> deleteCategory(@PathVariable int id)
     {
         // delete the category by id and return status 204 No Content
-        return null;
+        categoryService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
