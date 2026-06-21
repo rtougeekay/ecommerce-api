@@ -19,7 +19,7 @@ public class CategoryService {
     }
 
     public Category getById(int id) {
-        return categoryRepository.findById(categoryId).orElse(null);
+        return categoryRepository.findById(id).orElse(null);
     }
 
     public Category create(Category category) {
